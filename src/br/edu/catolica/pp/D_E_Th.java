@@ -15,8 +15,6 @@ public class D_E_Th extends Thread{
     private static List<Dados> casasSemelhantes = new ArrayList();
 
 
-    private static float mediaGeral;
-
 
     public D_E_Th(){
     }
@@ -31,6 +29,8 @@ public class D_E_Th extends Thread{
         double DE = 0;
         Dados casa1;
         Dados casa2;
+        int indiceCasa1 = 0;
+        int indiceCasa2 = 0;
 
         try {
 
@@ -39,8 +39,9 @@ public class D_E_Th extends Thread{
 
 
                 casa1 = new Dados(info.get(inicio).area, info.get(inicio).rooms, info.get(inicio).bathroom);
-
+                indiceCasa1 = inicio;
                 casa2 = new Dados(info.get(inicio+1).area, info.get(inicio+1).rooms, info.get(inicio+1).bathroom);
+                indiceCasa2 = inicio+1;
 
 
                 for(int i = inicio; i < fim; i++){
@@ -63,15 +64,18 @@ public class D_E_Th extends Thread{
                             DE = calculo;
 
                             casa1 = new Dados(info.get(i).area, info.get(i).rooms, info.get(i).bathroom);
+                            indiceCasa1 = i;
 
                             casa2 = new Dados(info.get(j).area, info.get(j).rooms, info.get(j).bathroom);
+                            indiceCasa2 = j;
+
 
 
                         }
 
                     }
                 }
-                System.out.println("A Thread " + Thread.currentThread().getId() +"Casas mais parecidas!!" + "\nCasa1: " + casa1 + "\nCasa2: " + casa2 + "\nDE: " + DE);
+                System.out.println("A Thread " + Thread.currentThread().getId() +"Casas mais parecidas!!" + "\nCasa1: " + casa1 + "\nindice da primeira casa: " + indiceCasa1 + "\nCasa2: " + casa2 + "\nindice da segunda casa: " + indiceCasa2 + "\nDE: " + DE);
 
                 synchronized (D_E_Th.class) {
                     D_E_Th.casasSemelhantes.add(new Dados(casa1.area, casa1.rooms, casa1.bathroom));

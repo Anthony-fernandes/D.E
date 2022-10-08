@@ -16,7 +16,7 @@ public class AppConcorrente{
         String linha;
 
         try {
-            BufferedReader conteudoCSV = new BufferedReader(new FileReader("C:\\Users\\55839\\Desktop\\datasetCasas - datasetCasas.csv"));
+            BufferedReader conteudoCSV = new BufferedReader(new FileReader("C:\\Users\\antho\\Documentos\\datasetCasas - datasetCasas.csv"));
             Scanner input = new Scanner(conteudoCSV.readLine());
             input.nextLine();
             List<Dados> info = new ArrayList();
