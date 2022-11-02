@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CyclicBarrier;
 
+import static br.edu.catolica.pp.AppConcorrente.tempoInicial;
+
 public class D_E_Th extends Thread{
     int inicio;
 
@@ -129,6 +131,10 @@ public class D_E_Th extends Thread{
                 System.out.println("--------------------------------------------------------------------------------------------------");
                 System.out.println("Ultima Thread " + Thread.currentThread().getId() +"Casas mais parecidas!!" + "\nCasa1: " + casa1 + "\nCasa2: " + casa2 + "\nDE: " + DE);
 
+
+                long tempoFinal = System.currentTimeMillis();
+                System.out.println( "tempo: " + (tempoFinal - tempoInicial) +" milissegundos");
+
             }
 
 
@@ -136,9 +142,5 @@ public class D_E_Th extends Thread{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 }
