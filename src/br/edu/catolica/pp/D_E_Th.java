@@ -12,7 +12,7 @@ public class D_E_Th extends Thread{
     int fim;
     private List<Dados> info = new ArrayList();
 
-    static CyclicBarrier newBarrier = new CyclicBarrier(7);
+    static CyclicBarrier newBarrier = new CyclicBarrier(17);
 
     private static List<Dados> casasSemelhantes = new ArrayList();
 
